@@ -1,0 +1,378 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #FFFFFF;
+  color: #1A1A1A;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.6;
+}
+
+header {
+  text-align: center;
+  padding: 4rem 2rem 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(119, 172, 183, 0.05) 0%, rgba(63, 196, 149, 0.05) 100%);
+  z-index: -1;
+}
+
+header h1 {
+  font-size: 4.5rem;
+  font-weight: 800;
+  color: #3FC495;
+  margin-bottom: 0.5rem;
+  letter-spacing: -2px;
+  text-transform: uppercase;
+  position: relative;
+}
+
+header h1::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, #77ACB7, #3FC495);
+  border-radius: 2px;
+}
+
+header p {
+  font-size: 1.2rem;
+  color: #1A1A1A;
+  font-weight: 400;
+  margin-top: 1.5rem;
+  letter-spacing: 0.5px;
+}
+
+main {
+  flex: 1;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.controls {
+  background: #FFFFFF;
+  border: 2px solid #77ACB7;
+  border-radius: 20px;
+  padding: 3rem;
+  margin-bottom: 3rem;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 2rem;
+  box-shadow: 0 10px 40px rgba(119, 172, 183, 0.15);
+  position: relative;
+}
+
+.controls > input[type="file"],
+.controls > input[type="url"] {
+  grid-column: 1 / -1;
+}
+
+.controls > label {
+  grid-column: span 2;
+}
+
+#previewBtn {
+  grid-column: 1 / 4;
+}
+
+#pdfBtn {
+  grid-column: 4 / 7;
+}
+
+.controls::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(135deg, #77ACB7, #3FC495);
+  border-radius: 20px;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.controls:hover::before {
+  opacity: 0.1;
+}
+
+.controls label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #F8B097;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.controls input[type="file"],
+.controls input[type="url"],
+.controls input[type="number"],
+.controls select {
+  padding: 1rem 1.25rem;
+  border: 2px solid #1A1A1A;
+  border-radius: 10px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: #FFFFFF;
+  color: #1A1A1A;
+  font-weight: 500;
+  width: 100%;
+  min-width: 0;
+}
+
+.controls input[type="file"] {
+  padding: 0.8rem;
+  cursor: pointer;
+  border-style: dashed;
+}
+
+.controls input[type="file"]::file-selector-button {
+  padding: 0.6rem 1.5rem;
+  border: none;
+  background: #3FC495;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  margin-right: 1rem;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+}
+
+.controls input[type="file"]::file-selector-button:hover {
+  background: #77ACB7;
+  transform: scale(1.05);
+}
+
+.controls input:focus,
+.controls select:focus {
+  outline: none;
+  border-color: #3FC495;
+  box-shadow: 0 0 0 4px rgba(63, 196, 149, 0.1);
+}
+
+.controls button {
+  padding: 1.2rem 2.5rem;
+  border: none;
+  border-radius: 10px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+}
+
+.controls button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.controls button:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+#previewBtn {
+  background: #77ACB7;
+  color: white;
+  box-shadow: 0 6px 20px rgba(119, 172, 183, 0.3);
+}
+
+#previewBtn:hover {
+  background: #3FC495;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(63, 196, 149, 0.4);
+}
+
+#pdfBtn {
+  background: #F8B097;
+  color: white;
+  box-shadow: 0 6px 20px rgba(248, 176, 151, 0.3);
+}
+
+#pdfBtn:hover {
+  background: #ff9a7a;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(248, 176, 151, 0.4);
+}
+
+.controls button:active {
+  transform: translateY(-1px);
+}
+
+.preview {
+  background: linear-gradient(135deg, rgba(119, 172, 183, 0.05) 0%, rgba(63, 196, 149, 0.05) 100%);
+  border-radius: 20px;
+  padding: 3rem;
+  margin-bottom: 3rem;
+  min-height: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #77ACB7;
+  position: relative;
+}
+
+#previewCanvas {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 15px 50px rgba(26, 26, 26, 0.15);
+}
+
+.canvas-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.canvas-container canvas {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(26, 26, 26, 0.1);
+  background: white;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 3px solid transparent;
+}
+
+.canvas-container canvas:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 60px rgba(63, 196, 149, 0.2);
+  border-color: #3FC495;
+}
+
+footer {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: linear-gradient(135deg, rgba(119, 172, 183, 0.05) 0%, rgba(63, 196, 149, 0.05) 100%);
+  margin-top: auto;
+  border-top: 2px solid #77ACB7;
+}
+
+footer p {
+  color: #1A1A1A;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 3rem;
+  }
+  
+  header p {
+    font-size: 1rem;
+  }
+  
+  .controls {
+    padding: 2rem 1.5rem;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .controls > input[type="file"],
+  .controls > input[type="url"],
+  .controls > label {
+    grid-column: 1;
+  }
+
+  #previewBtn,
+  #pdfBtn {
+    grid-column: 1;
+  }
+  
+  main {
+    padding: 1rem;
+  }
+  
+  .canvas-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .controls {
+    padding: 2.5rem;
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .controls > input[type="file"],
+  .controls > input[type="url"],
+  .controls > label {
+    grid-column: 1;
+  }
+
+  #previewBtn,
+  #pdfBtn {
+    grid-column: 1;
+  }
+}
+
+/* Animaciones */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.controls,
+.preview {
+  animation: slideUp 0.6s ease-out;
+}
+
+.canvas-container canvas {
+  animation: slideUp 0.6s ease-out;
+}

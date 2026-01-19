@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Splixter</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <h1>Splixter</h1>
+  <p>Divide imágenes. Imprime en grande.</p>
+</header>
+
+<main>
+
+<section class="controls">
+  <input type="file" id="fileInput" accept="image/*">
+  <input type="url" id="urlInput" placeholder="Pega la URL de la imagen">
+
+  <label>
+    Número de hojas
+    <input type="number" id="pages" value="1" min="1">
+  </label>
+
+  <label>
+    Dirección para dividir
+    <select id="direction">
+      <option value="vertical">Vertical (de arriba a abajo)</option>
+      <option value="horizontal">Horizontal (de izquierda a derecha)</option>
+    </select>
+  </label>
+
+  <label>
+    Tamaño del papel
+    <select id="paperSize">
+      <option value="A4">A4</option>
+      <option value="LETTER">Carta</option>
+      <option value="LEGAL">Oficio</option>
+    </select>
+  </label>
+
+  <button id="previewBtn">Vista previa</button>
+  <button id="pdfBtn">Descargar PDF</button>
+</section>
+
+<section class="preview">
+  <canvas id="previewCanvas"></canvas>
+</section>
+
+<section id="canvasContainer" class="canvas-container"></section>
+
+</main>
+
+<footer>
+  <p>@antonioferlez</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<script src="js/imageLoader.js"></script>
+<script src="js/posterLogic.js"></script>
+<script src="js/canvasRenderer.js"></script>
+<script src="js/pdfGenerator.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>
