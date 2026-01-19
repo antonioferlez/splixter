@@ -54,4 +54,5 @@ This project runs entirely in the browser.
 No backend, no server, no database.
 
 ## Preview
+https://antonioferlez.github.io/splixter/
 
